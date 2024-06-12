@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="queries" type="queries-type"/>
+    <xs:element name="query" type="query-type"/>
+
+    <xs:complexType name="queries-type">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element ref="query"/>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="query-type">
+        <xs:all>
+            <xs:element ref="name"/>
+            <xs:element ref="description"/>
+            <xs:element ref="value"/>
+        </xs:all>
+        <xs:attribute ref="databaseType"/>
+    </xs:complexType>
+
+    <xs:attribute name="databaseType" type="xs:string"/>
+
+
+    <xs:element name="description" type="xs:string"/>
+    <xs:element name="value" type="xs:string"/>
+    <xs:element name="name" type="xs:ID"/>
+
+</xs:schema>
